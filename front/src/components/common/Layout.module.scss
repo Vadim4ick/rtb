@@ -6,6 +6,16 @@
   flex-direction: column;
   padding: 30px;
   margin: 0 auto;
-  height: 950px;
-  width: 500px;
+  height: 840px;
+  width: 100%;
+  max-width: 560px;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @media (max-width: 590px) {
+    margin: 0 20px;
+    width: auto;
+  }
 }
