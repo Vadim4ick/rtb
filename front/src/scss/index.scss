@@ -75,7 +75,6 @@ img {
 .select2-selection {
   &__control {
     cursor: pointer !important;
-    margin-bottom: 2rem;
     border-radius: 10px !important;
     min-height: 48px !important;
     background-color: $purple !important;
@@ -83,6 +82,7 @@ img {
     color: $white;
     font-size: 16px;
     width: 100%;
+    margin: 0px auto 2rem auto;
     &--is-focused {
       border-color: transparent !important;
       box-shadow: 0 0 0 1px rgba($accent, 0.3) !important;

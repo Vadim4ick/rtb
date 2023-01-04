@@ -9,7 +9,7 @@ import bgImage from "./../../../images/home-bg.jpg";
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <Layout height="100%" bgImage={bgImage}>
+    <Layout bgImage={bgImage}>
       <Button
         style="main"
         callback={() => navigate("/new-workout")}
