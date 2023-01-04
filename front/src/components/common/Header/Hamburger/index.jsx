@@ -6,23 +6,37 @@ import burgerImage from "./../../../../images/header/hamburger.svg";
 import burgerCloseImage from "./../../../../images/header/close.svg";
 
 import styles from "./style.module.scss";
+import { useOutsideAlerter } from "../../../../hooks/useOutsideAlerter";
+import { useAuth } from "../../../../hooks/useAuth";
 
 const Hamburger = () => {
-  const [show, setShow] = useState(false);
+  const { setIsAuth } = useAuth();
 
-  const handleLogout = () => {};
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    useOutsideAlerter(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsAuth(false);
+    setIsComponentVisible(false);
+  };
 
   return (
-    <div className={styles.wrapper}>
-      <button type="button" onClick={() => setShow(!show)}>
+    <div className={styles.wrapper} ref={ref}>
+      <button
+        type="button"
+        onClick={() => setIsComponentVisible(!isComponentVisible)}
+      >
         <img
-          src={show ? burgerCloseImage : burgerImage}
+          src={isComponentVisible ? burgerCloseImage : burgerImage}
           height="24"
           alt="Auth"
         />
       </button>
 
-      <nav className={`${styles.menu} ${show ? styles.show : ""}`}>
+      <nav
+        className={`${styles.menu} ${isComponentVisible ? styles.show : ""}`}
+      >
         <ul>
           {menu.map((item, index) => (
             <li key={`_menu_${index}`}>

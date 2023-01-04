@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.scss";
 
 import userImage from "./../../../images/header/user.svg";
+import authImage from "./../../../images/header/dumbbell.svg";
 import arrowImage from "./../../../images/header/arrow.svg";
 import Hamburger from "./Hamburger";
+import { useAuth } from "../../../hooks/useAuth";
 
 const Header = () => {
-  const auth = true;
+  const { isAuth } = useAuth();
 
   const navigate = useNavigate();
 
@@ -18,8 +20,11 @@ const Header = () => {
           <img src={arrowImage} alt="Auth" />
         </button>
       ) : (
-        <button type="button">
-          <img src={userImage} alt="Auth" />
+        <button
+          type="button"
+          onClick={() => navigate(isAuth ? "/profile" : "/auth")}
+        >
+          <img src={isAuth ? authImage : userImage} height="40" alt="Auth" />
         </button>
       )}
 

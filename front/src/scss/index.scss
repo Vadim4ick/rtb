@@ -145,7 +145,7 @@ img {
   }
 }
 
-.dark-link {
+.darkLink {
   text-align: right;
   width: 100%;
   display: block;
@@ -160,11 +160,20 @@ img {
 }
 
 .wrapper-inner-page {
-  padding: 40px 30px;
+  padding: 50px 90px;
   text-align: center;
+
   max-width: 560px;
   width: 100%;
   margin: 0 auto;
+  background-color: $black;
+  height: calc(100vh - 320px);
+
+  @media (max-width: 590px) {
+    margin: 0 20px;
+    width: auto;
+    padding: 40px;
+  }
 }
 
 /* Chrome, Safari, Edge, Opera */

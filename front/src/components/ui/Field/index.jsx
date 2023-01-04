@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./style.module.scss";
 
-function Field({ placeholder, type = "text", value, onChange }) {
+function Field({ placeholder, type = "text", value, onChange, required }) {
   return (
     <input
       onChange={onChange}
@@ -9,6 +9,7 @@ function Field({ placeholder, type = "text", value, onChange }) {
       type={type}
       placeholder={placeholder}
       className={style.input}
+      required={required}
     />
   );
 }

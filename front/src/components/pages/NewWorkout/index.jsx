@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import ReactSelect from "react-select";
 
 import Layout from "../../common/Layout";
-import styles from "./style.module.scss";
-import bgImage from "./../../../images/new-workout.jpg";
+import bgImage from "./../../../images/create-workout.jpg";
 import Field from "../../ui/Field";
 import Button from "../../ui/Button";
 import { optionColor } from "./optionColor";
@@ -17,13 +17,16 @@ function NewWorkout() {
   return (
     <>
       <Layout bgImage={bgImage} heading="Create new workout" />
-      <div className={styles.wrapper}>
+      <div className="wrapper-inner-page">
         <form onSubmit={handelSubmit}>
           <Field
             placeholder="Enter name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+          <Link to="/new-exercise" className="darkLink">
+            Add new exercise
+          </Link>
           <ReactSelect
             className="select2-selection"
             classNamePrefix="select2-selection"
