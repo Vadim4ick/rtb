@@ -3,6 +3,7 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import colors from "colors";
 import cors from "cors";
+import path from "path";
 
 //Config
 import { connectDb } from "./config/db.js";
@@ -27,6 +28,9 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(express.json());
 app.use(cors());
+
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads/")));
 
 app.use("/api/users", userRoutes);
 app.use("/api/exercises", exercisesRoutes);
