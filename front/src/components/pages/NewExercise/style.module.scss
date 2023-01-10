@@ -13,9 +13,11 @@
     border-bottom: 2px solid transparent;
     padding-bottom: 0.3rem;
     transition: border-bottom 0.3s ease 0s;
+    opacity: 0.4;
 
     &.active {
       border-color: $accent;
+      opacity: 0.6;
     }
   }
 }
